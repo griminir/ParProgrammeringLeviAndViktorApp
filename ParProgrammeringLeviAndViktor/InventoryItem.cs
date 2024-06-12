@@ -11,6 +11,7 @@ namespace ParProgrammeringLeviAndViktor
         public string Name { get; private set; }
         public int Quantity { get; private set; }
         public decimal Price { get; private set; }
+        
 
         protected InventoryItem(string name, int quantity, decimal price)
         {

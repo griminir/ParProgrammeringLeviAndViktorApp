@@ -10,6 +10,7 @@ namespace ParProgrammeringLeviAndViktor
     {
         public string Size { get; private set; }
         public string Color { get; private set; }
+        public string SalesPitch => $"we have {Quantity} of the {Name} in the size {Size} and color {Color}";
 
         public ClothingItem(string name, int quantity, decimal price, string size, string color) : base(name, quantity, price)
         {
@@ -30,14 +31,12 @@ namespace ParProgrammeringLeviAndViktor
         }
 
 
-        public static ClothingItem DisplayClothingItem(string name, int quantity, decimal price, string size, string color)
+        public void DisplayItem()
         {
-            var clothing_item = new ClothingItem(name, quantity, price, size, color);
-            var seal_price = clothing_item.CalculatePriceWithTax();
-            var seal_discount = clothing_item.CalculatePriceWithDiscount();
+            var seal_price = CalculatePriceWithTax();
+            var seal_discount = CalculatePriceWithDiscount();
            
-            Console.WriteLine($"sale price of the item named ({name}) is : {seal_price} kr . with discounts {seal_discount} kr");
-            return clothing_item;
+            Console.WriteLine($"{SalesPitch} the price is : {seal_price} kr . with discounts {seal_discount} kr");
         }
 
 

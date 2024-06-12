@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -11,6 +12,7 @@ namespace ParProgrammeringLeviAndViktor
     {
         public string InsuranceInfo { get; private set; }
         public int Voltage { get; private set; }
+        public string SalesPitch => $"we have {Quantity} of the {Name} in the with a warranty of {InsuranceInfo} and and it uses {Voltage} Volt";
 
         public decimal CalculatePriceWithTax()
         {
@@ -24,10 +26,18 @@ namespace ParProgrammeringLeviAndViktor
             return before_discount * 0.5m;
         }
 
-        public ElectronicItem(string name, int quantity, decimal price, string inscurance, int voltage) : base(name, quantity, price)
+        public ElectronicItem(string name, int quantity, decimal price, string insurance, int voltage) : base(name, quantity, price)
         {
-            InsuranceInfo = inscurance;
+            InsuranceInfo = insurance;
             Voltage = voltage;
+        }
+
+        public void DisplayItem()
+        {
+            var seal_price = CalculatePriceWithTax();
+            var seal_discount = CalculatePriceWithDiscount();
+
+            Console.WriteLine($"{SalesPitch} the price is : {seal_price} kr . with discounts {seal_discount} kr");
         }
     }
 }

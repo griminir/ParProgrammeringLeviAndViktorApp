@@ -10,5 +10,6 @@ namespace ParProgrammeringLeviAndViktor
     {
         public decimal CalculatePriceWithTax();
         public decimal CalculatePriceWithDiscount();
+        public void DisplayItem();
     }
 }
