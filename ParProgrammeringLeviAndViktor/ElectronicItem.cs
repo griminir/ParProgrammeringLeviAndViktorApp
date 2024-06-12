@@ -11,17 +11,20 @@ namespace ParProgrammeringLeviAndViktor
     {
         public string InsuranceInfo { get; private set; }
         public int Voltage { get; private set; }
-        public double CalculatePriceWithTax()
+
+        public decimal CalculatePriceWithTax()
         {
-            throw new NotImplementedException();
+            decimal tax_rate = Price * 0.25m;
+            return Price + tax_rate;
         }
 
-        public double CalculatePriceWithDiscount()
+        public decimal CalculatePriceWithDiscount()
         {
-            throw new NotImplementedException();
+            decimal before_discount = CalculatePriceWithTax();
+            return before_discount * 0.5m;
         }
 
-        public ElectronicItem(string name, int quantity, double price, string inscurance, int voltage) : base(name, quantity, price)
+        public ElectronicItem(string name, int quantity, decimal price, string inscurance, int voltage) : base(name, quantity, price)
         {
             InsuranceInfo = inscurance;
             Voltage = voltage;

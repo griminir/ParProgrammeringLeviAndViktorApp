@@ -11,20 +11,37 @@ namespace ParProgrammeringLeviAndViktor
         public string Size { get; private set; }
         public string Color { get; private set; }
 
-        public ClothingItem(string name, int quantity, double price, string size, string color) : base(name, quantity, price)
+        public ClothingItem(string name, int quantity, decimal price, string size, string color) : base(name, quantity, price)
         {
             Size = size;
             Color = color;
         }
 
-        public double CalculatePriceWithTax()
+        public decimal CalculatePriceWithTax()
         {
-            throw new NotImplementedException();
+            decimal tax_rate = Price * 0.1m;
+            return Price + tax_rate;
         }
 
-        public double CalculatePriceWithDiscount()
+        public decimal CalculatePriceWithDiscount()
         {
-            throw new NotImplementedException();
+            decimal price_with_tax = CalculatePriceWithTax();
+            return price_with_tax * 0.7m;
         }
+
+
+        public static ClothingItem DisplayClothingItem(string name, int quantity, decimal price, string size, string color)
+        {
+            var clothing_item = new ClothingItem(name, quantity, price, size, color);
+            var seal_price = clothing_item.CalculatePriceWithTax();
+            var seal_discount = clothing_item.CalculatePriceWithDiscount();
+           
+            Console.WriteLine($"sale price of the item named ({name}) is : {seal_price} kr . with discounts {seal_discount} kr");
+            return clothing_item;
+        }
+
+
+
+
     }
 }

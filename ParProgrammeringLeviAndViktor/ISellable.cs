@@ -8,7 +8,7 @@ namespace ParProgrammeringLeviAndViktor
 {
     public interface ISellable
     {
-        public double CalculatePriceWithTax();
-        public double CalculatePriceWithDiscount();
+        public decimal CalculatePriceWithTax();
+        public decimal CalculatePriceWithDiscount();
     }
 }
